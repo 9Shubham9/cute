@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Eternal Promise 💖</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            font-family: 'Comic Sans MS', cursive;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        h1 {
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+
+        .heart {
+            font-size: 3rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .message {
+            display: none;
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+            color: #4a4a4a;
+        }
+
+        .promise-box {
+            background: #fff5f5;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border: 2px dashed #ff6b6b;
+        }
+
+        button {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-top: 1rem;
+        }
+
+        .secret-message {
+            display: none;
+            background: #fff0f0;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 1rem;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+
+        .heart-emoji {
+            position: fixed;
+            animation: float 8s linear infinite;
+            opacity: 0.7;
+            bottom: -20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Forever Promise 🌸</h1>
+        <div class="heart" onclick="revealMessage()">💖</div>
+
+        <div id="message1" class="message">
+            For my beloved [Her Name],
+        </div>
+
+        <div id="message2" class="message">
+            You mean everything to me...
+        </div>
+
+        <div id="promises" class="message">
+            <div class="promise-box">I promise to cherish every moment 🌸</div>
+            <div class="promise-box">I promise to be your safe place 🌟</div>
+            <div class="promise-box">I promise endless love notes 🥰</div>
+            <div class="promise-box">I promise forever adventures 🌱</div>
+        </div>
+
+        <button onclick="showSurprise()">Unlock My Heart's Secret</button>
+        <div id="secretMessage" class="secret-message">
+            💌 My Teddy,<br><br>
+            I promise to always be there for you, no matter what. <br>
+            I’ll support you, cheer for you, and stand by <br>
+            your side through everything. <br>
+            You’re special to me, and I’ll always value our bond. <br> <br>
+            💖 Shubham
+        </div>
+    </div>
+
+    <script>
+        let currentMessage = 0;
+
+        // Continuous heart creation
+        function createContinuousHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart-emoji';
+                heart.innerHTML = '💖';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = Math.random() * 10 + 10 + 'px';
+                heart.style.animationDuration = Math.random() * 4 + 8 + 's';
+                document.body.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 9000);
+            }, 500);
+        }
+
+        function revealMessage() {
+            const messages = document.querySelectorAll('.message');
+            if (currentMessage < messages.length) {
+                messages[currentMessage].style.display = 'block';
+                currentMessage++;
+            }
+        }
+
+        function showSurprise() {
+            document.getElementById('promises').style.display = 'none';
+            document.querySelector('button').style.display = 'none';
+            document.getElementById('secretMessage').style.display = 'block';
+            document.querySelector('.container').style.transform = 'scale(1.05)';
+        }
+
+        // Start continuous hearts when page loads
+        window.onload = createContinuousHearts;
+    </script>
+</body>
+
+</html>
